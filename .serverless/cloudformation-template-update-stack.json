@@ -161,7 +161,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/serverless-dating-app/prod/1670340165451-2022-12-06T15:22:45.451Z/serverless-dating-app.zip"
+          "S3Key": "serverless/serverless-dating-app/prod/1670342198157-2022-12-06T15:56:38.157Z/serverless-dating-app.zip"
         },
         "Handler": "bin/main",
         "Runtime": "go1.x",
@@ -179,14 +179,14 @@
         "ApiLogGroup"
       ]
     },
-    "ApiLambdaVersionHj2cP6BriIeQn9QnEyTGIDwg1VM2M4kdpoA2YFYuNg": {
+    "ApiLambdaVersionD1hKxzonZVaC3ONNTzyMHtodzJn803fbP7pUKiNE": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ApiLambdaFunction"
         },
-        "CodeSha256": "wgkiMx5pruyoDKKqc1tod9PqpneAOocX0XQg7oS5/j8="
+        "CodeSha256": "gmARf+zs/U8Qg+j+4ptuvJMiM0swubuTE75NsgJkPyc="
       }
     },
     "ApiGatewayRestApi": {
@@ -211,18 +211,6 @@
           ]
         },
         "PathPart": "v1",
-        "RestApiId": {
-          "Ref": "ApiGatewayRestApi"
-        }
-      }
-    },
-    "ApiGatewayResourceV1Hello": {
-      "Type": "AWS::ApiGateway::Resource",
-      "Properties": {
-        "ParentId": {
-          "Ref": "ApiGatewayResourceV1"
-        },
-        "PathPart": "hello",
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
@@ -331,21 +319,6 @@
           "Ref": "ApiGatewayResourceV1"
         },
         "PathPart": "swipe",
-        "RestApiId": {
-          "Ref": "ApiGatewayRestApi"
-        }
-      }
-    },
-    "ApiGatewayResourceSwagger": {
-      "Type": "AWS::ApiGateway::Resource",
-      "Properties": {
-        "ParentId": {
-          "Fn::GetAtt": [
-            "ApiGatewayRestApi",
-            "RootResourceId"
-          ]
-        },
-        "PathPart": "swagger",
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
@@ -530,52 +503,6 @@
           "Ref": "ApiGatewayRestApi"
         }
       }
-    },
-    "ApiGatewayMethodV1HelloGet": {
-      "Type": "AWS::ApiGateway::Method",
-      "Properties": {
-        "HttpMethod": "GET",
-        "RequestParameters": {},
-        "ResourceId": {
-          "Ref": "ApiGatewayResourceV1Hello"
-        },
-        "RestApiId": {
-          "Ref": "ApiGatewayRestApi"
-        },
-        "ApiKeyRequired": false,
-        "AuthorizationType": "NONE",
-        "Integration": {
-          "IntegrationHttpMethod": "POST",
-          "Type": "AWS_PROXY",
-          "Uri": {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition"
-                },
-                ":apigateway:",
-                {
-                  "Ref": "AWS::Region"
-                },
-                ":lambda:path/2015-03-31/functions/",
-                {
-                  "Fn::GetAtt": [
-                    "ApiLambdaFunction",
-                    "Arn"
-                  ]
-                },
-                "/invocations"
-              ]
-            ]
-          }
-        },
-        "MethodResponses": []
-      },
-      "DependsOn": [
-        "ApiLambdaPermissionApiGateway"
-      ]
     },
     "ApiGatewayMethodV1AuthLoginPost": {
       "Type": "AWS::ApiGateway::Method",
@@ -899,53 +826,7 @@
         "ApiLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayMethodSwaggerGet": {
-      "Type": "AWS::ApiGateway::Method",
-      "Properties": {
-        "HttpMethod": "GET",
-        "RequestParameters": {},
-        "ResourceId": {
-          "Ref": "ApiGatewayResourceSwagger"
-        },
-        "RestApiId": {
-          "Ref": "ApiGatewayRestApi"
-        },
-        "ApiKeyRequired": false,
-        "AuthorizationType": "NONE",
-        "Integration": {
-          "IntegrationHttpMethod": "POST",
-          "Type": "AWS_PROXY",
-          "Uri": {
-            "Fn::Join": [
-              "",
-              [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition"
-                },
-                ":apigateway:",
-                {
-                  "Ref": "AWS::Region"
-                },
-                ":lambda:path/2015-03-31/functions/",
-                {
-                  "Fn::GetAtt": [
-                    "ApiLambdaFunction",
-                    "Arn"
-                  ]
-                },
-                "/invocations"
-              ]
-            ]
-          }
-        },
-        "MethodResponses": []
-      },
-      "DependsOn": [
-        "ApiLambdaPermissionApiGateway"
-      ]
-    },
-    "ApiGatewayDeployment1670340163026": {
+    "ApiGatewayDeployment1670342196125": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -958,15 +839,13 @@
         "ApiGatewayMethodV1ProfileOptions",
         "ApiGatewayMethodV1ProfileFilterOptions",
         "ApiGatewayMethodV1SwipeOptions",
-        "ApiGatewayMethodV1HelloGet",
         "ApiGatewayMethodV1AuthLoginPost",
         "ApiGatewayMethodV1AuthRefreshPost",
         "ApiGatewayMethodV1UserCreatePost",
         "ApiGatewayMethodV1ProfileCreatePost",
         "ApiGatewayMethodV1ProfileGet",
         "ApiGatewayMethodV1ProfileFilterGet",
-        "ApiGatewayMethodV1SwipeGet",
-        "ApiGatewayMethodSwaggerGet"
+        "ApiGatewayMethodV1SwipeGet"
       ]
     },
     "ApiLambdaPermissionApiGateway": {
@@ -1019,7 +898,7 @@
     "ApiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ApiLambdaVersionHj2cP6BriIeQn9QnEyTGIDwg1VM2M4kdpoA2YFYuNg"
+        "Ref": "ApiLambdaVersionD1hKxzonZVaC3ONNTzyMHtodzJn803fbP7pUKiNE"
       },
       "Export": {
         "Name": "sls-serverless-dating-app-prod-ApiLambdaFunctionQualifiedArn"

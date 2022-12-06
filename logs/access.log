@@ -537,3 +537,5 @@
 [GIN] 2022/12/06 - 15:41:20 | 404 |      14.946µs |       127.0.0.1 | GET      "/v1/swipe/preference=yes&profile_id=638f545a5ed9839068caf934&user_id=638f53645ed9839068caf92f"
 [GIN] 2022/12/06 - 15:41:40 | 200 |   23.618836ms |       127.0.0.1 | GET      "/v1/swipe?preference=yes&profile_id=638f545a5ed9839068caf934&user_id=638f53645ed9839068caf92f"
 [GIN] 2022/12/06 - 15:42:00 | 200 |    4.458296ms |       127.0.0.1 | GET      "/v1/profile/filter?gender=Male"
+[GIN] 2022/12/06 - 16:46:54 | 201 |  102.332795ms |       127.0.0.1 | POST     "/v1/user/create"
+[GIN] 2022/12/06 - 17:03:49 | 201 |   84.164411ms |       127.0.0.1 | POST     "/v1/user/create"

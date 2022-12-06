@@ -18,8 +18,8 @@ There are two environments configured on the project
 1. local/Dev
 2. Prod
 
-## local/Dev Enviornment
-The local/dev enviornment can be setup from the .env.local file which is listed on the project no need to create seperatly.
+## local/Dev Environment
+The local/dev enviroginment can be setup from the .env.local file which is listed on the project no need to create seperatly.
 
 ### How to run local/dev project
 1. First just have to run the docker file by running the following command:
@@ -106,3 +106,10 @@ Tools and Technologies Used:
 ### Logs
 logs can be store in a file called access.log in logs directory.
 
+### Request and Response Screenshots
+![](https://i.postimg.cc/9MsDht2B/Screenshot-2022-12-06-at-4-47-09-PM.png)
+![](https://i.postimg.cc/9QHyT2vB/Screenshot-2022-12-06-at-4-47-20-PM.png)
+![](https://i.postimg.cc/8CKHL3dP/Screenshot-2022-12-06-at-5-04-01-PM.png)
+![](https://i.postimg.cc/KjnBpsTT/Screenshot-2022-12-06-at-5-09-44-PM.png)
+![](https://i.postimg.cc/MHxvHZcc/Screenshot-2022-12-06-at-5-10-05-PM.png)
+![](https://i.postimg.cc/VNqw6qXR/Screenshot-2022-12-06-at-5-10-20-PM.png)

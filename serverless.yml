@@ -10,9 +10,6 @@ functions:
     handler: bin/main
     events:
       - http:
-          path: /v1/hello
-          method: GET
-      - http:
           path: /v1/auth/login
           method: POST
       - http:
@@ -49,9 +46,6 @@ functions:
             origin: "*"
             headers:
               - Bearer-Token
-      - http:
-          path: /swagger/
-          method: GET
 package:
   patterns:
     - '!*/**'

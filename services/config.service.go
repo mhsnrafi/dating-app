@@ -13,7 +13,7 @@ func LoadConfig() {
 	v.SetDefault("SERVER_PORT", "8080")
 	v.SetDefault("MODE", "debug")
 	v.SetConfigType("dotenv")
-	v.SetConfigName(".env.local")
+	v.SetConfigName(".env.prod")
 	v.AddConfigPath("./")
 
 	if err := v.ReadInConfig(); err != nil {
