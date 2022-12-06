@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "574fee48-6a76-46fd-a4bf-0d3dbc804f9e",
+		"name": "Mitte Api collection - Local",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"psqvmDk@GqkqgDd.biz\",\n    \"password\": \"~1z\\\"v7{Pe3?`,}XRw69t%K2Nd)5048(H\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8080/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://d5mo5y0bc3.execute-api.eu-central-1.amazonaws.com/prod/v1/user/create",
+					"protocol": "https",
+					"host": [
+						"d5mo5y0bc3",
+						"execute-api",
+						"eu-central-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod",
+						"v1",
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Profile",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Bearer-Token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzhlNTU4OWRlMDMxOWFiOWFiMGI5ZmQiLCJleHAiOjE2NzA0MjY1NDEsImlhdCI6MTY3MDMzNDE0MSwiZW1haWwiOiJCTUtQRWtkQFF3RGZranYub3JnIiwidHlwZSI6ImFjY2VzcyJ9.TEbchZ37RY_jTqc2RfpkJs4OxEVTnrK3uwNJmfgZrfU",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Age\": 19,\n    \"age_filter_max\": 40,\n    \"age_filter_min\": 19,\n    \"gender\": \"Male\",\n    \"interested_in\": [\n        \"Female\",\n        \"Male\"\n    ],\n    \"preferred_location\": [\n        \"Hamburg\",\n        \"Berlin\",\n        \"Munich\",\n        \"Frankfurt\",\n        \"Dusseldorf\",\n        \"Kiel\"\n    ],\n    \"user_id\": \"638eec62a44fc43a6b8115ff\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://d5mo5y0bc3.execute-api.eu-central-1.amazonaws.com/prod/v1/profile/create",
+					"protocol": "https",
+					"host": [
+						"d5mo5y0bc3",
+						"execute-api",
+						"eu-central-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod",
+						"v1",
+						"profile",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Swipe",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Bearer-Token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzhlNTU4OWRlMDMxOWFiOWFiMGI5ZmQiLCJleHAiOjE2NzA0MjY1NDEsImlhdCI6MTY3MDMzNDE0MSwiZW1haWwiOiJCTUtQRWtkQFF3RGZranYub3JnIiwidHlwZSI6ImFjY2VzcyJ9.TEbchZ37RY_jTqc2RfpkJs4OxEVTnrK3uwNJmfgZrfU",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://d5mo5y0bc3.execute-api.eu-central-1.amazonaws.com/prod/v1/swipe?preference=yes&profile_id=638eed5ea44fc43a6b811607&user_id=638eec56a44fc43a6b8115f4",
+					"protocol": "https",
+					"host": [
+						"d5mo5y0bc3",
+						"execute-api",
+						"eu-central-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod",
+						"v1",
+						"swipe"
+					],
+					"query": [
+						{
+							"key": "preference",
+							"value": "yes"
+						},
+						{
+							"key": "profile_id",
+							"value": "638eed5ea44fc43a6b811607"
+						},
+						{
+							"key": "user_id",
+							"value": "638eec56a44fc43a6b8115f4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Bearer-Token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzhmNTM2NDVlZDk4MzkwNjhjYWY5MmYiLCJleHAiOjE2NzA0Mjk3OTgsImlhdCI6MTY3MDMzNzM5OCwiZW1haWwiOiJwc3F2bURrQEdxa3FnRGQuYml6IiwidHlwZSI6ImFjY2VzcyJ9.dPokCrU5DVsOY0MzOgQ2FAx6ARwzMA5CRozYD_11UIg",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/v1/profile?user_id=638f53645ed9839068caf92f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"profile"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "638f53645ed9839068caf92f"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Profile Filter",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Bearer-Token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzhlNTU4OWRlMDMxOWFiOWFiMGI5ZmQiLCJleHAiOjE2NzA0MjY1NDEsImlhdCI6MTY3MDMzNDE0MSwiZW1haWwiOiJCTUtQRWtkQFF3RGZranYub3JnIiwidHlwZSI6ImFjY2VzcyJ9.TEbchZ37RY_jTqc2RfpkJs4OxEVTnrK3uwNJmfgZrfU",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://d5mo5y0bc3.execute-api.eu-central-1.amazonaws.com/prod/v1/profile/filter?gender=Male",
+					"protocol": "https",
+					"host": [
+						"d5mo5y0bc3",
+						"execute-api",
+						"eu-central-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod",
+						"v1",
+						"profile",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "gender",
+							"value": "Male"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

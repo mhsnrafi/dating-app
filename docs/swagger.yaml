@@ -1,0 +1,187 @@
+definitions:
+  models.LoginRequest:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    type: object
+  models.ProfileRequest:
+    properties:
+      Age:
+        type: integer
+      age_filter_max:
+        type: integer
+      age_filter_min:
+        type: integer
+      gender:
+        type: string
+      interested_in:
+        items:
+          type: string
+        type: array
+      preferred_location:
+        items:
+          type: string
+        type: array
+      swipes:
+        items:
+          additionalProperties: true
+          type: object
+        type: array
+      user_id:
+        type: string
+    type: object
+  models.RefreshRequest:
+    properties:
+      token:
+        type: string
+    type: object
+  models.Response:
+    properties:
+      data:
+        additionalProperties: {}
+        type: object
+      message:
+        type: string
+      success:
+        type: boolean
+    type: object
+info:
+  contact: {}
+paths:
+  /auth/login:
+    post:
+      consumes:
+      - application/json
+      description: login a user
+      parameters:
+      - description: Login Request
+        in: body
+        name: req
+        required: true
+        schema:
+          $ref: '#/definitions/models.LoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: Login
+      tags:
+      - auth
+  /auth/refresh:
+    post:
+      consumes:
+      - application/json
+      description: refreshes a user token
+      parameters:
+      - description: Refresh Request
+        in: body
+        name: req
+        required: true
+        schema:
+          $ref: '#/definitions/models.RefreshRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: Refresh
+      tags:
+      - auth
+  /profile/:user_id:
+    get:
+      consumes:
+      - application/json
+      description: List down the match profiles
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: Profiles
+      tags:
+      - profile
+  /profile/create:
+    post:
+      consumes:
+      - application/json
+      description: Create profile for a user
+      parameters:
+      - description: Profile Request
+        in: body
+        name: req
+        required: true
+        schema:
+          $ref: '#/definitions/models.ProfileRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: CreateProfile
+      tags:
+      - create profile
+  /profile/filter/:age/:gender:
+    get:
+      consumes:
+      - application/json
+      description: Filter profile by age or gender
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: FilteredProfiles
+      tags:
+      - profile
+  /swipe/:user_id/:profile_id/:preference:
+    get:
+      consumes:
+      - application/json
+      description: Swipe will return the perfect match of the user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: Swipe
+      tags:
+      - swipe
+  /user/create:
+    post:
+      consumes:
+      - application/json
+      description: Create random user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: CreateUser
+      tags:
+      - create user
+swagger: "2.0"

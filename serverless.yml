@@ -1,0 +1,58 @@
+service: serverless-dating-app
+frameworkVersion: '>=1.28.0'
+provider:
+  name: aws
+  runtime: go1.x
+  region: eu-central-1
+  stage: ${opt:stage}
+functions:
+  api:
+    handler: bin/main
+    events:
+      - http:
+          path: /v1/hello
+          method: GET
+      - http:
+          path: /v1/auth/login
+          method: POST
+      - http:
+          path: /v1/auth/refresh
+          method: POST
+      - http:
+          path: /v1/user/create
+          method: POST
+      - http:
+          path: /v1/profile/create
+          method: POST
+          cors:
+            origin: "*"
+            headers:
+              - Bearer-Token
+      - http:
+          path: /v1/profile
+          method: GET
+          cors:
+            origin: "*"
+            headers:
+              - Bearer-Token
+      - http:
+          path: /v1/profile/filter
+          method: GET
+          cors:
+            origin: "*"
+            headers:
+              - Bearer-Token
+      - http:
+          path: /v1/swipe
+          method: GET
+          cors:
+            origin: "*"
+            headers:
+              - Bearer-Token
+      - http:
+          path: /swagger/
+          method: GET
+package:
+  patterns:
+    - '!*/**'
+    - bin/main
